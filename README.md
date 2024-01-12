@@ -28,7 +28,7 @@ SigThief.exe -h
 @Warn: 代码仅供学习使用，请勿用于其他用途
 
 Usage of SigThief.exe:
-  -c string	// 证书文件: -c 证书文件
+  -c string // 证书文件: -c 证书文件
         Cert File
   -f string // 带有签名的文件: -f 带有签名的文件
         Signed Exe
