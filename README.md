@@ -7,7 +7,115 @@ SigThief by Go
 
 ## Usage
 
-### Help
+### Update v2
+
+#### Help
+
+```powershell
+SigThief.exe -h
+
+        ██████  ██▓  ▄████  ███▄    █ ▄▄▄█████▓ ██░ ██  ██▓▓█████   █████▒
+        ▒██    ▒ ▓██▒ ██▒ ▀█▒ ██ ▀█   █ ▓  ██▒ ▓▒▓██░ ██▒▓██▒▓█   ▀ ▓██   ▒
+        ░ ▓██▄   ▒██▒▒██░▄▄▄░▓██  ▀█ ██▒▒ ▓██░ ▒░▒██▀▀██░▒██▒▒███   ▒████ ░
+        ▒   ██▒░██░░▓█  ██▓▓██▒  ▐▌██▒░ ▓██▓ ░ ░▓█ ░██ ░██░▒▓█  ▄ ░▓█▒  ░
+        ▒██████▒▒░██░░▒▓███▀▒▒██░   ▓██░  ▒██▒ ░ ░▓█▒░██▓░██░░▒████▒░▒█░
+        ▒ ▒▓▒ ▒ ░░▓   ░▒   ▒ ░ ▒░   ▒ ▒   ▒ ░░    ▒ ░░▒░▒░▓  ░░ ▒░ ░ ▒ ░
+        ░ ░▒  ░ ░ ▒ ░  ░   ░ ░ ░░   ░ ▒░    ░     ▒ ░▒░ ░ ▒ ░ ░ ░  ░ ░
+        ░  ░  ░   ▒ ░░ ░   ░    ░   ░ ░   ░       ░  ░░ ░ ▒ ░   ░    ░ ░
+                ░   ░        ░          ░           ░  ░  ░ ░     ░  ░
+
+        @Auth: C1ph3rX13
+        @Blog: https://c1ph3rx13.github.io
+        @Note：SigThief - Go
+        @Warn: The code is for learning purposes only, please do not use it for other purposes
+
+Usage SigThief.exe:
+  -act string
+        操作类型 (save, exe, sign)
+  -cert string
+        导出的证书文件
+  -dir string
+        指定目录
+  -dst string
+        已签名的目标文件
+  -out string
+        窃取签名后的输出文件
+  -src string
+        未签名的源文件
+```
+
+#### Save (*.exe) Cert
+
+```powershell
+SigThief.exe -act save -dst code.exe -cert code.der
+
+        ██████  ██▓  ▄████  ███▄    █ ▄▄▄█████▓ ██░ ██  ██▓▓█████   █████▒
+        ▒██    ▒ ▓██▒ ██▒ ▀█▒ ██ ▀█   █ ▓  ██▒ ▓▒▓██░ ██▒▓██▒▓█   ▀ ▓██   ▒
+        ░ ▓██▄   ▒██▒▒██░▄▄▄░▓██  ▀█ ██▒▒ ▓██░ ▒░▒██▀▀██░▒██▒▒███   ▒████ ░
+        ▒   ██▒░██░░▓█  ██▓▓██▒  ▐▌██▒░ ▓██▓ ░ ░▓█ ░██ ░██░▒▓█  ▄ ░▓█▒  ░
+        ▒██████▒▒░██░░▒▓███▀▒▒██░   ▓██░  ▒██▒ ░ ░▓█▒░██▓░██░░▒████▒░▒█░
+        ▒ ▒▓▒ ▒ ░░▓   ░▒   ▒ ░ ▒░   ▒ ▒   ▒ ░░    ▒ ░░▒░▒░▓  ░░ ▒░ ░ ▒ ░
+        ░ ░▒  ░ ░ ▒ ░  ░   ░ ░ ░░   ░ ▒░    ░     ▒ ░▒░ ░ ▒ ░ ░ ░  ░ ░
+        ░  ░  ░   ▒ ░░ ░   ░    ░   ░ ░   ░       ░  ░░ ░ ▒ ░   ░    ░ ░
+                ░   ░        ░          ░           ░  ░  ░ ░     ░  ░
+
+        @Auth: C1ph3rX13
+        @Blog: https://c1ph3rx13.github.io
+        @Note：SigThief - Go
+        @Warn: The code is for learning purposes only, please do not use it for other purposes
+
+2024/10/18 13:57:30 INFO saved cert to code.der
+```
+
+#### Cert Signed
+
+```powershell
+SigThief.exe -act sign -src o.exe -cert code.der -out signed.exe
+
+        ██████  ██▓  ▄████  ███▄    █ ▄▄▄█████▓ ██░ ██  ██▓▓█████   █████▒
+        ▒██    ▒ ▓██▒ ██▒ ▀█▒ ██ ▀█   █ ▓  ██▒ ▓▒▓██░ ██▒▓██▒▓█   ▀ ▓██   ▒
+        ░ ▓██▄   ▒██▒▒██░▄▄▄░▓██  ▀█ ██▒▒ ▓██░ ▒░▒██▀▀██░▒██▒▒███   ▒████ ░
+        ▒   ██▒░██░░▓█  ██▓▓██▒  ▐▌██▒░ ▓██▓ ░ ░▓█ ░██ ░██░▒▓█  ▄ ░▓█▒  ░
+        ▒██████▒▒░██░░▒▓███▀▒▒██░   ▓██░  ▒██▒ ░ ░▓█▒░██▓░██░░▒████▒░▒█░
+        ▒ ▒▓▒ ▒ ░░▓   ░▒   ▒ ░ ▒░   ▒ ▒   ▒ ░░    ▒ ░░▒░▒░▓  ░░ ▒░ ░ ▒ ░
+        ░ ░▒  ░ ░ ▒ ░  ░   ░ ░ ░░   ░ ▒░    ░     ▒ ░▒░ ░ ▒ ░ ░ ░  ░ ░
+        ░  ░  ░   ▒ ░░ ░   ░    ░   ░ ░   ░       ░  ░░ ░ ▒ ░   ░    ░ ░
+                ░   ░        ░          ░           ░  ░  ░ ░     ░  ░
+
+        @Auth: C1ph3rX13
+        @Blog: https://c1ph3rx13.github.io
+        @Note：SigThief - Go
+        @Warn: The code is for learning purposes only, please do not use it for other purposes
+
+2024/10/18 13:58:53 INFO saved signed to signed.exe
+```
+
+#### Exe Signed
+
+```powershell
+SigThief.exe -act exe -src o.exe -dst code.exe -out signed.exe
+
+        ██████  ██▓  ▄████  ███▄    █ ▄▄▄█████▓ ██░ ██  ██▓▓█████   █████▒
+        ▒██    ▒ ▓██▒ ██▒ ▀█▒ ██ ▀█   █ ▓  ██▒ ▓▒▓██░ ██▒▓██▒▓█   ▀ ▓██   ▒
+        ░ ▓██▄   ▒██▒▒██░▄▄▄░▓██  ▀█ ██▒▒ ▓██░ ▒░▒██▀▀██░▒██▒▒███   ▒████ ░
+        ▒   ██▒░██░░▓█  ██▓▓██▒  ▐▌██▒░ ▓██▓ ░ ░▓█ ░██ ░██░▒▓█  ▄ ░▓█▒  ░
+        ▒██████▒▒░██░░▒▓███▀▒▒██░   ▓██░  ▒██▒ ░ ░▓█▒░██▓░██░░▒████▒░▒█░
+        ▒ ▒▓▒ ▒ ░░▓   ░▒   ▒ ░ ▒░   ▒ ▒   ▒ ░░    ▒ ░░▒░▒░▓  ░░ ▒░ ░ ▒ ░
+        ░ ░▒  ░ ░ ▒ ░  ░   ░ ░ ░░   ░ ▒░    ░     ▒ ░▒░ ░ ▒ ░ ░ ░  ░ ░
+        ░  ░  ░   ▒ ░░ ░   ░    ░   ░ ░   ░       ░  ░░ ░ ▒ ░   ░    ░ ░
+                ░   ░        ░          ░           ░  ░  ░ ░     ░  ░
+
+        @Auth: C1ph3rX13
+        @Blog: https://c1ph3rx13.github.io
+        @Note：SigThief - Go
+        @Warn: The code is for learning purposes only, please do not use it for other purposes
+
+2024/10/18 14:00:30 INFO saved signed to signed.exe
+```
+
+### Update v1
+
+#### Help
 
 ```powershell
 SigThief.exe -h
@@ -40,7 +148,7 @@ Usage of SigThief.exe:
         Target (Unsign) Exe
 ```
 
-### Save (*.exe) Cert
+#### Save (*.exe) Cert
 
 ```powershell
 SigThief.exe -s vs.exe -o vs.der
@@ -63,7 +171,7 @@ SigThief.exe -s vs.exe -o vs.der
 [*] Saved: vs.der
 ```
 
-### Cert Signed
+#### Cert Signed
 
 ```powershell
 SigThief.exe -t a.exe -c vs.der -o signed.exe
@@ -86,7 +194,7 @@ SigThief.exe -t a.exe -c vs.der -o signed.exe
 [*] Cert Signed: signed.exe
 ```
 
-### SigThief
+#### Exe Signed
 
 ```powershell
 SigThief.exe -t a.exe -f vs.exe -o signed.exe
@@ -112,3 +220,5 @@ SigThief.exe -t a.exe -f vs.exe -o signed.exe
 ## Thanks
 
 https://github.com/TideSec/GoBypassAV
+
+https://github.com/Tylous/Mangle
